@@ -1,0 +1,995 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación Comercial Naturepellets - Casos de Éxito Verificados</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a3d1f 0%, #2c5530 50%, #4a7c59 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .presentation-container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100vh;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            background: white;
+            position: relative;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        .slide-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .slide-header h1 {
+            font-size: 2.5em;
+            color: #2c5530;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .slide-header h2 {
+            font-size: 2em;
+            color: #2c5530;
+            margin-bottom: 10px;
+        }
+
+        .slide-header p {
+            font-size: 1.2em;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .slide-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .three-columns {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            width: 100%;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e8 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            color: #2c5530;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .feature-card .number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #4a7c59;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .logo-slide {
+            background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+            color: white;
+        }
+
+        .logo-slide .slide-header h1 {
+            color: white;
+            font-size: 4em;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .logo-slide .slide-header p {
+            color: #e8f5e8;
+            font-size: 1.5em;
+        }
+
+        .certifications {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .cert-badge {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            color: #2c5530;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .case-study {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+
+        .case-study h3 {
+            color: #2c5530;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-left: 5px solid #4a7c59;
+            padding-left: 20px;
+        }
+
+        .case-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .result-item {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e8 100%);
+            border-radius: 10px;
+        }
+
+        .result-item .big-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #2c5530;
+            display: block;
+        }
+
+        .result-item .label {
+            font-size: 0.9em;
+            color: #666;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th {
+            background: #2c5530;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .comparison-table td {
+            padding: 15px 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table .highlight {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d0f0d0 100%);
+            font-weight: bold;
+        }
+
+        .calculator-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+
+        .calculator-inputs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c5530;
+            font-weight: bold;
+        }
+
+        .input-group select, .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .input-group select:focus, .input-group input:focus {
+            outline: none;
+            border-color: #4a7c59;
+        }
+
+        .calculator-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: #2c5530;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .nav-btn:hover {
+            background: #4a7c59;
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(44, 85, 48, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1em;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .cta-button {
+            background: white;
+            color: #2c5530;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #4a7c59;
+            transition: width 0.3s ease;
+            z-index: 1001;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 20px;
+            }
+
+            .slide-header h1 {
+                font-size: 2em;
+            }
+
+            .slide-header h2 {
+                font-size: 1.5em;
+            }
+
+            .two-columns, .three-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .calculator-inputs {
+                grid-template-columns: 1fr;
+            }
+
+            .navigation {
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .highlight-text {
+            background: linear-gradient(120deg, #4a7c59 0%, #4a7c59 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 30%;
+            background-position: 0 85%;
+            padding: 2px 4px;
+            color: #2c5530;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="slide-counter" id="slideCounter">1 / 12</div>
+
+    <div class="presentation-container">
+        <!-- Slide 1: Portada -->
+        <div class="slide active logo-slide">
+            <div class="slide-header">
+                <h1>🔥 NATUREPELLETS</h1>
+                <p>Casos de Éxito Verificados - Energía Sostenible, Ahorro Real</p>
+            </div>
+            <div class="slide-content">
+                <div class="certifications">
+                    <div class="cert-badge">✓ ENplus A1</div>
+                    <div class="cert-badge">✓ AVEBIOM</div>
+                    <div class="cert-badge">✓ ISO 9001</div>
+                    <div class="cert-badge">✓ Kilómetro Cero</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Contexto Mercado -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>El Momento Perfecto del Pellet</h2>
+                <p>Mercado estabilizado post-crisis + Legislación favorable + Conciencia sostenible</p>
+            </div>
+            <div class="slide-content">
+                <div class="three-columns">
+                    <div class="feature-card">
+                        <span class="number">7.05</span>
+                        <h3>céntimos/kWh</h3>
+                        <p>Energía térmica más competitiva del mercado</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="number">890K</span>
+                        <h3>Toneladas consumo</h3>
+                        <p>Mercado español 2024 en crecimiento sostenido</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="number">2026</span>
+                        <h3>Prohibición calderas gas</h3>
+                        <p>UE acelera transición hacia biomasa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Hotel Flamingo - Pionero -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>🏆 Hotel Flamingo - Pionero Nacional</h2>
+                <p>Primer hotel sostenible de España (2006) - Premio Eurosolar A.E.E.R</p>
+            </div>
+            <div class="slide-content">
+                <div class="case-study">
+                    <div class="two-columns">
+                        <div>
+                            <h3>📍 L'Ampolla, Tarragona</h3>
+                            <ul style="text-align: left; margin: 20px 0; font-size: 1.1em; line-height: 1.8;">
+                                <li><strong>66 habitaciones</strong> frente al mar</li>
+                                <li><strong>Piscina interior</strong> climatizada</li>
+                                <li><strong>Restaurante</strong> productos locales</li>
+                                <li><strong>Sistema:</strong> Caldera biomasa integral</li>
+                                <li><strong>Antes:</strong> Gasóleo convencional</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <span class="big-number">35%</span>
+                                <div class="label">Reducción Costes</div>
+                            </div>
+                            <div class="result-item">
+                                <span class="big-number">100%</span>
+                                <div class="label">Independencia Gasóleo</div>
+                            </div>
+                            <div class="result-item">
+                                <span class="big-number">1°</span>
+                                <div class="label">Hotel Certificado</div>
+                            </div>
+                            <div class="result-item">
+                                <span class="big-number">18</span>
+                                <div class="label">Años Funcionando</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Castilla Termal - Cadena -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>🏨 Castilla Termal - 100% Sostenible</h2>
+                <p>5 hoteles premium con biomasa - Autosuficiencia energética completa</p>
+            </div>
+            <div class="slide-content">
+                <div class="case-study">
+                    <h3>Monasterio de Valbuena - Hotel Estrella</h3>
+                    <div class="case-results">
+                        <div class="result-item">
+                            <span class="big-number">100%</span>
+                            <div class="label">Necesidades Térmicas</div>
+                        </div>
+                        <div class="result-item">
+                            <span class="big-number">0.00083</span>
+                            <div class="label">ton CO2/huésped/día</div>
+                        </div>
+                        <div class="result-item">
+                            <span class="big-number">75%</span>
+                            <div class="label">Reducción Emisiones</div>
+                        </div>
+                        <div class="result-item">
+                            <span class="big-number">17.6M</span>
+                            <div class="label">Litros Agua Ahorrados/año</div>
+                        </div>
+                        <div class="result-item">
+                            <span class="big-number">0€</span>
+                            <div class="label">Dependencia Gas</div>
+                        </div>
+                        <div class="result-item">
+                            <span class="big-number">5</span>
+                            <div class="label">Hoteles Cadena</div>
+                        </div>
+                    </div>
+                    <p style="text-align: center; margin-top: 20px; font-size: 1.1em; color: #666;">
+                        <strong>Combustible:</strong> Astilla local aserraderos + restos forestales (Economía Circular)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Comunidades Vecinos -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>🏢 Comunidades que Ahorran</h2>
+                <p>Casos reales documentados - Payback 4-6 años con subvenciones</p>
+            </div>
+            <div class="slide-content">
+                <div class="case-study">
+                    <h3>Caso Tipo: Comunidad 24 viviendas (Valladolid)</h3>
+                    <div class="two-columns">
+                        <div>
+                            <h4 style="color: #2c5530; margin-bottom: 15px;">📊 Datos Económicos Reales</h4>
+                            <table style="width: 100%; text-align: left; line-height: 2;">
+                                <tr><td><strong>Inversión total:</strong></td><td>45,000€</td></tr>
+                                <tr><td><strong>Subvención (60%):</strong></td><td>27,000€</td></tr>
+                                <tr><td><strong>Inversión neta:</strong></td><td><span class="highlight-text">18,000€</span></td></tr>
+                                <tr><td><strong>Ahorro anual:</strong></td><td><span class="highlight-text">4,200€</span></td></tr>
+                                <tr><td><strong>Payback real:</strong></td><td><span class="highlight-text">4.3 años</span></td></tr>
+                                <tr><td><strong>Ahorro 10 años:</strong></td><td><span class="highlight-text">42,000€</span></td></tr>
+                            </table>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <span class="big-number">15%</span>
+                                <div class="label">Ahorro Primer Año</div>
+                            </div>
+                            <div class="result-item">
+                                <span class="big-number">45%</span>
+                                <div class="label">Ahorro Post-Amortización</div>
+                            </div>
+                            <div class="result-item">
+                                <span class="big-number">70%</span>
+                                <div class="label">Subvención Máxima</div>
+                            </div>
+                            <div class="result-item">
+                                <span class="big-number">ESE</span>
+                                <div class="label">Modalidad Sin Inversión</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Caso Industrial -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>🏭 Industria Eficiente</h2>
+                <p>Toralla - Procesado Mejillón (Galicia) - 30% ahorro energético desde 2017</p>
+            </div>
+            <div class="slide-content">
+                <div class="case-study">
+                    <div class="two-columns">
+                        <div>
+                            <h3>Proceso Industrial</h3>
+                            <ul style="text-align: left; margin: 20px 0; font-size: 1.1em; line-height: 1.8;">
+                                <li><strong>Antes:</strong> Gas licuado (GLP) para secado</li>
+                                <li><strong>Después:</strong> Quemador biomasa pellets</li>
+                                <li><strong>Proceso:</strong> Secado conchillas mejillón</li>
+                                <li><strong>Producto:</strong> Cal natural (carbonato cálcico)</li>
+                                <li><strong>Beneficio extra:</strong> Doble valorización residuos</li>
+                            </ul>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <span class="big-number">30%</span>
+                                <div class="label">Reducción Coste</div>
+                            </div>
+                            <div class="result-item">
+                                <span class="big-number">7</span>
+                                <div class="label">Años Funcionando</div>
+                            </div>
+                            <div class="result-item">
+                                <span class="big-number">100%</span>
+                                <div class="label">Estabilidad Precios</div>
+                            </div>
+                            <div class="result-item">
+                                <span class="big-number">0</span>
+                                <div class="label">Incidencias</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Comparativa Combustibles -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>💰 Ventaja Competitiva Demostrada</h2>
+                <p>Pellets = Energía más económica del mercado español 2024</p>
+            </div>
+            <div class="slide-content">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Combustible</th>
+                            <th>€/kWh</th>
+                            <th>vs Pellets</th>
+                            <th>Ahorro Anual*</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="highlight">
+                            <td><strong>🔥 Pellets Naturepellets</strong></td>
+                            <td><strong>0.063</strong></td>
+                            <td><strong>REFERENCIA</strong></td>
+                            <td><strong>BASE</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Gas Natural</td>
+                            <td>0.082</td>
+                            <td>+23% más caro</td>
+                            <td>2,850€</td>
+                        </tr>
+                        <tr>
+                            <td>Gasóleo C</td>
+                            <td>0.127</td>
+                            <td>+51% más caro</td>
+                            <td>9,600€</td>
+                        </tr>
+                        <tr>
+                            <td>Electricidad</td>
+                            <td>0.200</td>
+                            <td>+68% más caro</td>
+                            <td>20,550€</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="text-align: center; margin-top: 20px; font-size: 1.1em; color: #666;">
+                    *Basado en consumo 150,000 kWh/año (hotel rural tipo)
+                </p>
+                <div style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #e8f5e8 0%, #d0f0d0 100%); border-radius: 15px;">
+                    <h3 style="color: #2c5530; font-size: 1.8em;">
+                        ✅ PELLETS = AHORRO GARANTIZADO vs CUALQUIER ALTERNATIVA
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Calculadora ROI Interactiva -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>🧮 Calculemos Su Ahorro Real</h2>
+                <p>Introduzca sus datos para obtener su ROI personalizado</p>
+            </div>
+            <div class="slide-content">
+                <div class="calculator-section">
+                    <div class="calculator-inputs">
+                        <div class="input-group">
+                            <label for="combustible-calc">Combustible Actual:</label>
+                            <select id="combustible-calc" onchange="calcularROIPresentation()">
+                                <option value="">Seleccione...</option>
+                                <option value="gasoleo">Gasóleo C</option>
+                                <option value="gas">Gas Natural</option>
+                                <option value="propano">Propano</option>
+                                <option value="electricidad">Electricidad</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="coste-calc">Coste Anual Actual (€):</label>
+                            <input type="number" id="coste-calc" placeholder="ej: 12000" onchange="calcularROIPresentation()">
+                        </div>
+                        <div class="input-group">
+                            <label for="superficie-calc">Superficie (m²):</label>
+                            <input type="number" id="superficie-calc" placeholder="ej: 800" onchange="calcularROIPresentation()">
+                        </div>
+                        <div class="input-group">
+                            <label for="tipo-calc">Tipo Instalación:</label>
+                            <select id="tipo-calc" onchange="calcularROIPresentation()">
+                                <option value="">Seleccione...</option>
+                                <option value="hotel">Hotel Rural</option>
+                                <option value="comunidad">Comunidad Vecinos</option>
+                                <option value="ayuntamiento">Ayuntamiento</option>
+                                <option value="industria">Industria</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="calculator-results">
+                        <div class="result-item">
+                            <span class="big-number" id="ahorro-calc">-</span>
+                            <div class="label">Ahorro Anual</div>
+                        </div>
+                        <div class="result-item">
+                            <span class="big-number" id="porcentaje-calc">-</span>
+                            <div class="label">% Ahorro</div>
+                        </div>
+                        <div class="result-item">
+                            <span class="big-number" id="roi-calc">-</span>
+                            <div class="label">Recuperación</div>
+                        </div>
+                        <div class="result-item">
+                            <span class="big-number" id="ahorro-10-calc">-</span>
+                            <div class="label">Ahorro 10 Años</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Certificaciones -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>🏆 Calidad Garantizada</h2>
+                <p>Certificaciones oficiales que respaldan la máxima calidad</p>
+            </div>
+            <div class="slide-content">
+                <div class="two-columns">
+                    <div class="feature-card">
+                        <h3>🌟 ENplus A1</h3>
+                        <p><strong>Máxima calidad europea pellets</strong></p>
+                        <p>Garantía rendimiento + bajo residuo cenizas (<0.5%)</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🇪🇸 AVEBIOM</h3>
+                        <p><strong>Asociación Española Valorización Biomasa</strong></p>
+                        <p>Cumplimiento estricto normativa nacional</p>
+                    </div>
+                </div>
+                <div class="two-columns" style="margin-top: 30px;">
+                    <div class="feature-card">
+                        <h3>🌲 100% Pino Sin Corteza</h3>
+                        <p><strong>Sin aditivos químicos</strong></p>
+                        <p>Combustión limpia y eficiente</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📍 Kilómetro Cero Segovia</h3>
+                        <p><strong>Producido en Sanchonuño</strong></p>
+                        <p>Trazabilidad completa + economía local</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Subvenciones -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>💰 Financiación Disponible 2024-2025</h2>
+                <p>Subvenciones activas + Tramitación incluida sin coste</p>
+            </div>
+            <div class="slide-content">
+                <div class="two-columns">
+                    <div class="feature-card">
+                        <h3>🇪🇺 Fondos Europeos Next Generation</h3>
+                        <span class="number">70%</span>
+                        <p><strong>Cobertura hasta 70% inversión</strong></p>
+                        <p>Destinatarios: Comunidades, Ayuntamientos</p>
+                        <p>Plazo: <strong>Abierto hasta diciembre 2025</strong></p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🏛️ Plan Renove Autonómico</h3>
+                        <span class="number">60%</span>
+                        <p><strong>Cobertura 40-60% inversión</strong></p>
+                        <p>Destinatarios: Hoteles, Industrias, Particulares</p>
+                        <p><strong>Tramitación incluida</strong></p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%); border-radius: 20px; color: white;">
+                    <h3 style="font-size: 2em; margin-bottom: 15px;">🎯 TRAMITACIÓN SUBVENCIONES</h3>
+                    <h3 style="font-size: 2em;">INCLUIDA SIN COSTE ADICIONAL</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Propuesta -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>🤝 Su Siguiente Paso</h2>
+                <p>Estudio técnico personalizado gratuito + Gestión integral</p>
+            </div>
+            <div class="slide-content">
+                <div class="three-columns">
+                    <div class="feature-card">
+                        <h3>📋 ESTUDIO GRATUITO</h3>
+                        <ul style="text-align: left; margin: 15px 0; line-height: 1.8;">
+                            <li>Análisis in-situ instalación</li>
+                            <li>Cálculo exacto ROI</li>
+                            <li>Propuesta técnica detallada</li>
+                            <li>Sin compromiso alguno</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📄 GESTIÓN INTEGRAL</h3>
+                        <ul style="text-align: left; margin: 15px 0; line-height: 1.8;">
+                            <li>Tramitación subvenciones</li>
+                            <li>Licencias y permisos</li>
+                            <li>Instalación llave en mano</li>
+                            <li>Formación personal</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🔧 SERVICIO COMPLETO</h3>
+                        <ul style="text-align: left; margin: 15px 0; line-height: 1.8;">
+                            <li>Mantenimiento 24/7</li>
+                            <li>Suministro garantizado</li>
+                            <li>Soporte técnico</li>
+                            <li>Garantía total</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Call to Action Final -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>📞 ¡Empecemos Hoy!</h2>
+                <p>Su ahorro energético está a una llamada de distancia</p>
+            </div>
+            <div class="slide-content">
+                <div class="cta-section">
+                    <h3 style="font-size: 2.5em; margin-bottom: 20px;">¿Listo para Ahorrar?</h3>
+                    <p style="font-size: 1.3em; margin-bottom: 30px;">
+                        Únase a los hoteles, comunidades e industrias que ya ahorran con Naturepellets
+                    </p>
+                    <button class="cta-button" onclick="contactarComercial()">📱 CONTACTAR AHORA</button>
+                    <button class="cta-button" onclick="solicitarEstudioFinal()">📋 SOLICITAR ESTUDIO</button>
+                    <button class="cta-button" onclick="calcularAhorro()">🧮 CALCULAR AHORRO</button>
+                </div>
+                <div style="margin-top: 40px; text-align: center;">
+                    <h4 style="color: #2c5530; margin-bottom: 15px;">Naturepellets - Sanchonuño, Segovia</h4>
+                    <p style="font-size: 1.1em; color: #666;">
+                        📧 comercial@naturepellets.es | 📱 +34 600 000 000<br>
+                        🌐 www.naturepellets.es | 📍 40.000 toneladas/año capacidad
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◀ Anterior</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Siguiente ▶</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        // Precios combustibles para calculadora
+        const preciosCombustibles = {
+            'gasoleo': 0.127,
+            'gas': 0.082,
+            'propano': 0.223,
+            'electricidad': 0.200,
+            'pellets': 0.063
+        };
+
+        const subvenciones = {
+            'hotel': { porcentaje: 35, maximo: 50000 },
+            'comunidad': { porcentaje: 70, maximo: 80000 },
+            'ayuntamiento': { porcentaje: 60, maximo: 200000 },
+            'industria': { porcentaje: 40, maximo: 100000 }
+        };
+
+        function updateSlideDisplay() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentSlide) {
+                    slide.classList.add('active', 'fade-in');
+                }
+            });
+
+            // Actualizar contador
+            document.getElementById('slideCounter').textContent = `${currentSlide + 1} / ${totalSlides}`;
+
+            // Actualizar barra de progreso
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+
+            // Actualizar botones navegación
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            const newSlide = currentSlide + direction;
+            if (newSlide >= 0 && newSlide < totalSlides) {
+                currentSlide = newSlide;
+                updateSlideDisplay();
+            }
+        }
+
+        function calcularROIPresentation() {
+            const combustible = document.getElementById('combustible-calc').value;
+            const costeAnual = parseFloat(document.getElementById('coste-calc').value);
+            const superficie = parseFloat(document.getElementById('superficie-calc').value);
+            const tipo = document.getElementById('tipo-calc').value;
+
+            if (!combustible || !costeAnual || !superficie || !tipo) {
+                return;
+            }
+
+            // Cálculos ROI
+            const kwhAnuales = costeAnual / preciosCombustibles[combustible];
+            const costePelletsAnual = kwhAnuales * preciosCombustibles.pellets;
+            const ahorroAnual = costeAnual - costePelletsAnual;
+            const ahorroPorcentual = (ahorroAnual / costeAnual) * 100;
+
+            const factoresInversion = {
+                'hotel': 120,
+                'comunidad': 80,
+                'ayuntamiento': 100,
+                'industria': 90
+            };
+
+            const inversionEstimada = superficie * factoresInversion[tipo];
+            const subvencion = Math.min(
+                inversionEstimada * (subvenciones[tipo].porcentaje / 100),
+                subvenciones[tipo].maximo
+            );
+
+            const inversionNeta = inversionEstimada - subvencion;
+            const roiAños = inversionNeta / ahorroAnual;
+            const ahorro10Años = ahorroAnual * 10;
+
+            // Actualizar resultados
+            document.getElementById('ahorro-calc').textContent = formatCurrency(ahorroAnual);
+            document.getElementById('porcentaje-calc').textContent = Math.round(ahorroPorcentual) + '%';
+            document.getElementById('roi-calc').textContent = roiAños.toFixed(1) + ' años';
+            document.getElementById('ahorro-10-calc').textContent = formatCurrency(ahorro10Años);
+        }
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('es-ES', {
+                style: 'currency',
+                currency: 'EUR',
+                maximumFractionDigits: 0
+            }).format(amount);
+        }
+
+        function contactarComercial() {
+            window.open('https://wa.me/34600000000?text=Hola,%20me%20interesa%20información%20sobre%20Naturepellets%20tras%20ver%20la%20presentación', '_blank');
+        }
+
+        function solicitarEstudioFinal() {
+            alert('¡Perfecto! Te contactaremos en 24 horas para programar tu estudio técnico gratuito.\n\n✓ Análisis personalizado\n✓ Cálculo exacto ROI\n✓ Gestión subvenciones\n✓ Sin compromiso');
+        }
+
+        function calcularAhorro() {
+            // Ir a la slide de la calculadora
+            currentSlide = 7; // Slide 8 (índice 7)
+            updateSlideDisplay();
+        }
+
+        // Navegación por teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === 'Home') { currentSlide = 0; updateSlideDisplay(); }
+            if (e.key === 'End') { currentSlide = totalSlides - 1; updateSlideDisplay(); }
+        });
+
+        // Inicializar
+        updateSlideDisplay();
+
+        // Auto-avance opcional (comentado por defecto)
+        // setInterval(function() {
+        //     if (currentSlide < totalSlides - 1) {
+        //         changeSlide(1);
+        //     }
+        // }, 15000); // Cambiar cada 15 segundos
+    </script>
+</body>
+</html>
